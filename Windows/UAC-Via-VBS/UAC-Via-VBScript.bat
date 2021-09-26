@@ -1,12 +1,11 @@
 ::::::::::::::::::::::::::::::::::::::::::::
-:: Elevate.cmd - Version 2
-:: Automatically check & get admin rights
+:::CMD自动检测并提权
 ::::::::::::::::::::::::::::::::::::::::::::
 @echo off
 CLS
 ECHO.
 ECHO =============================
-ECHO Running Admin shell
+ECHO 启动管理员权限
 ECHO =============================
 
 :init
@@ -24,7 +23,7 @@ if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges )
 if '%1'=='ELEV' (echo ELEV & shift /1 & goto gotPrivileges)
 ECHO.
 ECHO **************************************
-ECHO Invoking UAC for Privilege Escalation
+ECHO 唤起管理员授权
 ECHO **************************************
 
 ECHO Set UAC = CreateObject^("Shell.Application"^) > "%vbsGetPrivileges%"
@@ -42,6 +41,6 @@ cd /d %~dp0
 if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 
 ::::::::::::::::::::::::::::
-::START
+::开始
 ::::::::::::::::::::::::::::
-REM Run shell as admin (example) - put here code as you like
+REM 以下放置自己的代码
